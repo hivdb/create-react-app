@@ -1,14 +1,14 @@
 {
-  "name": "@hivdb/react-scripts",
-  "version": "0.6.1",
+  "name": "@philiptzou/react-scripts",
+  "version": "0.6.1post2",
   "description": "Configuration and scripts for Create React App. Customized by Stanford HIVDB team.",
-  "repository": "hivdb/create-react-app",
+  "repository": "philiptzou/create-react-app",
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/hivdb/create-react-app/issues"
+    "url": "https://github.com/philiptzou/create-react-app/issues"
   },
   "files": [
     ".babelrc",
