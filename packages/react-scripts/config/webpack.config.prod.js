@@ -47,6 +47,10 @@ var publicPath = ensureSlash(homepagePathname, true);
 var publicUrl = ensureSlash(homepagePathname, false);
 // Get environment variables to inject into our app.
 var env = getClientEnvironment(publicUrl);
+var babelPresets = process.env.BABEL_PRESETS || '[]';
+babelPresets = JSON.parse(babelPresets);
+var babelPlugins = process.env.BABEL_PLUGINS || '[]';
+babelPlugins = JSON.parse(babelPlugins);
 
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
@@ -124,7 +128,8 @@ module.exports = {
         // @remove-on-eject-begin
         query: {
           babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
+          presets: [require.resolve('babel-preset-react-app')].concat(babelPresets),
+          plugins: babelPlugins
         },
         // @remove-on-eject-end
       },

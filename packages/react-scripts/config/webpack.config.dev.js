@@ -29,6 +29,10 @@ var publicPath = '/';
 var publicUrl = '';
 // Get environment variables to inject into our app.
 var env = getClientEnvironment(publicUrl);
+var babelPresets = process.env.BABEL_PRESETS || '[]';
+babelPresets = JSON.parse(babelPresets);
+var babelPlugins = process.env.BABEL_PLUGINS || '[]';
+babelPlugins = JSON.parse(babelPlugins);
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -119,7 +123,8 @@ module.exports = {
         query: {
           // @remove-on-eject-begin
           babelrc: false,
-          presets: [require.resolve('babel-preset-react-app')],
+          presets: [require.resolve('babel-preset-react-app')].concat(babelPresets),
+          plugins: babelPlugins,
           // @remove-on-eject-end
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
